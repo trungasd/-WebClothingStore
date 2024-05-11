@@ -1,0 +1,9 @@
+@media (min-width: 1200px) {
+    .container {
+        max-width: -webkit-fill-available !important;
+    }
+}
+.main-sidebar, .main-sidebar::before {
+    transition: margin-left .3s ease-in-out,width .3s ease-in-out;
+    width: 260px !important;
+}

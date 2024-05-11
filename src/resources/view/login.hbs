@@ -1,0 +1,81 @@
+<!--breadcrumbs area start-->
+<div class='breadcrumbs_area'>
+    <div class='row'>
+        <div class='col-12'>
+            <div class='breadcrumb_content'>
+                <ul>
+                    <li><a href='/'>home</a></li>
+                    <li><i class='fa fa-angle-right'></i></li>
+                    <li>login</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumbs area end-->
+
+<!-- customer login start -->
+<div class='customer_login'>
+    <div class='row'>
+        <!--login area start-->
+        <div class='col-lg-6 col-md-6'>
+            <div class='account_form'>
+                <h2>login</h2>
+                <form action='/login/login'  method='POST'>
+                    <p>
+                        <label>Account<span>*</span></label>
+                        <input type='text' id='account' name='account' class='form-control' placeholder='Tên tài khoản' />
+                    </p>
+                    <p>
+                        <label>Passwords <span>*</span></label>
+                        <input type='password' id='password' name='password' class='form-control' placeholder='Mật khẩu' />
+                    </p>
+                    <div class='login_submit'>
+                        <button type='submit'>login</button>
+                        <label for='remember'>
+                            <input id='remember' type='checkbox' />
+                            Remember me
+                        </label>
+                        <a href='#'>Lost your password?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--login area start-->
+
+        <!--register area start-->
+        <div class='col-lg-6 col-md-6'>
+            <div class='account_form register'>
+                <h2>Register</h2>
+                <form action='/login/register' method="POST">
+                    <p>
+                        <label>Account<span>*</span></label>
+                        <input type='text' id='account' name='account' class='form-control' placeholder='Tên tài khoản' />
+                    </p>
+                    <p>
+                        <label>Passwords <span>*</span></label>
+                        <input type='password' id='password' name='password' class='form-control' placeholder='Mật khẩu' />
+                    </p>
+                    <p>
+                        <label>Fullname<span>*</span></label>
+                        <input type='text' id='fullName' name='fullName' class='form-control' placeholder='Họ và tên' />
+                    </p>
+                    <p>
+                        <label>Email<span>*</span></label>
+                        <input type='text' id='email' name='email' class='form-control' placeholder='Email' />
+                    </p>
+                    <p>
+                        <label>Phone number<span>*</span></label>
+                        <input type='text' id='phone' name='phone' class='form-control' placeholder='Số điện thoại' />
+                    </p>
+                    <div class='login_submit'>
+                        <button type='submit'>Register</button>
+                    </div>
+                </form>
+            </div>
+            <script ></script>
+        </div>
+        <!--register area end-->
+    </div>
+</div>
+<!-- customer login end -->

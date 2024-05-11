@@ -1,0 +1,335 @@
+<!--breadcrumbs area start-->
+<div class='breadcrumbs_area'>
+    <div class='row'>
+        <div class='col-12'>
+            <div class='breadcrumb_content'>
+                <ul>
+                    <li><a href='/'>home</a></li>
+                    <li><i class='fa fa-angle-right'></i></li>
+                    <li><a href='/products'>Products</a></li>
+                    <li><i class='fa fa-angle-right'></i></li>
+                    <li>single product</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumbs area end-->
+<div class='product_details'>
+    <div class='row'>
+        <div class='col-lg-5 col-md-6'>
+            <div class='product_tab fix'>
+                <div class='product_tab_button'>
+                    <ul class='nav' role='tablist'>
+                        <li>
+                            <a
+                                class='active'
+                                data-toggle='tab'
+                                href='#p_tab1'
+                                role='tab'
+                                aria-controls='p_tab1'
+                                aria-selected='false'
+                            ><img src='{{Products.imageURL}}' alt='' /></a>
+                        </li>
+                        <li>
+                            <a
+                                data-toggle='tab'
+                                href='#p_tab2'
+                                role='tab'
+                                aria-controls='p_tab2'
+                                aria-selected='false'
+                            ><img src='{{Products.imageURL2}}' alt='' /></a>
+                        </li>
+                        <li>
+                            <a
+                                data-toggle='tab'
+                                href='#p_tab3'
+                                role='tab'
+                                aria-controls='p_tab3'
+                                aria-selected='false'
+                            ><img src='{{Products.imageURL3}}' alt='' /></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class='tab-content produc_tab_c'>
+                    <div
+                        class='tab-pane fade show active'
+                        id='p_tab1'
+                        role='tabpanel'
+                    >
+                        <div class='modal_img'>
+                            <a href='#'><img
+                                    src='{{Products.imageURL}}'
+                                    alt=''
+                                /></a>
+                            <div class='img_icone'>
+                                <img src='\img\cart\span-new.png' alt='' />
+                            </div>
+                            <div class='view_img'>
+                                <a
+                                    class='large_view'
+                                    href='{{Products.imageURL}}'
+                                ><i class='fa fa-search-plus'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='tab-pane fade' id='p_tab2' role='tabpanel'>
+                        <div class='modal_img'>
+                            <a href='#'><img
+                                    src='{{Products.imageURL2}}'
+                                    alt=''
+                                /></a>
+                            <div class='img_icone'>
+                                <img src='\img\cart\span-new.png' alt='' />
+                            </div>
+                            <div class='view_img'>
+                                <a
+                                    class='large_view'
+                                    href='{{Products.imageURL2}}'
+                                ><i class='fa fa-search-plus'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='tab-pane fade' id='p_tab3' role='tabpanel'>
+                        <div class='modal_img'>
+                            <a href='#'><img
+                                    src='{{Products.imageURL3}}'
+                                    alt=''
+                                /></a>
+                            <div class='img_icone'>
+                                <img src='\img\cart\span-new.png' alt='' />
+                            </div>
+                            <div class='view_img'>
+                                <a
+                                    class='large_view'
+                                    href='{{Products.imageURL3}}'
+                                > <i class='fa fa-search-plus'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class='col-lg-7 col-md-6'>
+            <div class='product_d_right'>
+                <h1>{{Products.name}}</h1>
+                <div class='product_ratting mb-10'>
+                    <ul>
+                        <li><a href='#'><i class='fa fa-star'></i></a></li>
+                        <li><a href='#'><i class='fa fa-star'></i></a></li>
+                        <li><a href='#'><i class='fa fa-star'></i></a></li>
+                        <li><a href='#'><i class='fa fa-star'></i></a></li>
+                        <li><a href='#'><i class='fa fa-star'></i></a></li>
+                        <li><a href='#'> Write a review </a></li>
+                    </ul>
+                </div>
+                <div class='product_desc'>
+                    <p>{{Products.detail}}</p>
+                </div>
+
+                <div class='content_price mb-15'>
+                    <span>${{Products.salePrice}}</span>
+                    <span class='old-price'>${{Products.price}}</span>
+                </div>
+                <div class='box_quantity mb-20'>
+                    <form action='/addTocart' method='POST'>
+                        <label>quantity</label>
+                        <input min='0' max='100' value='1' type='number' />
+                        <input type='hidden' name='name' value='{{Products.name}}'>
+                        <input type='hidden' name='imageURL' value='{{Products.imageURL}}'>
+                        <input type='hidden' name='salePrice' value='{{Products.salePrice}}'>
+                        <input type='hidden' name='slug' value='{{Products.slug}}'>
+                        <button type='submit'><i class='fa fa-shopping-cart'></i>
+                        add to cart</button>
+                    </form>
+                    
+                    <a href='#' title='add to wishlist'><i
+                            class='fa fa-heart'
+                            aria-hidden='true'
+                        ></i></a>
+                </div>
+                <div class='product_d_size mb-20'>
+                    <label for='group_1'>size</label>
+                    <select name='size' id='group_1'>
+                        <option value='1'>S</option>
+                        <option value='2'>M</option>
+                        <option value='3'>L</option>
+                    </select>
+                </div>
+
+                <div class='sidebar_widget color'>
+                    <h2>Choose Color</h2>
+                    <div class='widget_color'>
+                        <ul>
+                            <li><a href='#'></a></li>
+                            <li><a href='#'></a></li>
+                            <li> <a href='#'></a></li>
+                            <li><a href='#'></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class='product_stock mb-20'>
+                    <p>{{Products.quantity}}</p>
+                    <span> In stock </span>
+                </div>
+                <div class='wishlist-share'>
+                    <h4>Share on:</h4>
+                    <ul>
+                        <li><a href='#'><i class='fa fa-rss'></i></a></li>
+                        <li><a href='#'><i class='fa fa-vimeo'></i></a></li>
+                        <li><a href='#'><i class='fa fa-tumblr'></i></a></li>
+                        <li><a href='#'><i class='fa fa-pinterest'></i></a></li>
+                        <li><a href='#'><i class='fa fa-linkedin'></i></a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--product details end-->
+<div class='product_d_info'>
+    <div class='row'>
+        <div class='col-12'>
+            <div class='product_d_inner'>
+                <div class='product_info_button'>
+                    <ul class='nav' role='tablist'>
+                        <li>
+                            <a
+                                class='active'
+                                data-toggle='tab'
+                                href='#info'
+                                role='tab'
+                                aria-controls='info'
+                                aria-selected='false'
+                            >More info</a>
+                        </li>
+                        <li>
+                            <a
+                                data-toggle='tab'
+                                href='#sheet'
+                                role='tab'
+                                aria-controls='sheet'
+                                aria-selected='false'
+                            >Data sheet</a>
+                        </li>
+                        <li>
+                            <a
+                                data-toggle='tab'
+                                href='#reviews'
+                                role='tab'
+                                aria-controls='reviews'
+                                aria-selected='false'
+                            >Reviews</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class='tab-content'>
+                    <div
+                        class='tab-pane fade show active'
+                        id='info'
+                        role='tabpanel'
+                    >
+                        <div class='product_info_content'>
+                            <p>{{Products.detail}}</p>
+                        </div>
+                    </div>
+
+                    <div class='tab-pane fade' id='sheet' role='tabpanel'>
+                        <div class='product_d_table'>
+                            <form action='#'>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td
+                                                class='first_child'
+                                            >Compositions</td>
+                                            <td>Polyester</td>
+                                        </tr>
+                                        <tr>
+                                            <td class='first_child'>Styles</td>
+                                            <td>Girly</td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                class='first_child'
+                                            >Properties</td>
+                                            <td>Short Dress</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <div class='product_info_content'>
+                            <p>{{Products.detail}}</p>
+                        </div>
+                    </div>
+                    <div class='tab-pane fade' id='reviews' role='tabpanel'>
+                        <div class='product_info_content'>
+                            <p>{{Products.detail}}</p>
+                        </div>
+                        <div class='product_info_inner'>
+                            <div class='product_ratting mb-10'>
+                                <ul>
+                                    <li><a href='#'><i
+                                                class='fa fa-star'
+                                            ></i></a></li>
+                                    <li><a href='#'><i
+                                                class='fa fa-star'
+                                            ></i></a></li>
+                                    <li><a href='#'><i
+                                                class='fa fa-star'
+                                            ></i></a></li>
+                                    <li><a href='#'><i
+                                                class='fa fa-star'
+                                            ></i></a></li>
+                                    <li><a href='#'><i
+                                                class='fa fa-star'
+                                            ></i></a></li>
+                                </ul>
+                                <strong>Posthemes</strong>
+                                <p>{{Products.createdProduct}}</p>
+                            </div>
+                            <div class='product_demo'>
+                                <strong>demo</strong>
+                                <p>That's OK!</p>
+                            </div>
+                        </div>
+                        <div class='product_review_form'>
+                            <form action='#'>
+                                <h2>Add a review </h2>
+                                <p>Your email address will not be published.
+                                    Required fields are marked
+                                </p>
+                                <div class='row'>
+                                    <div class='col-12'>
+                                        <label for='review_comment'>Your review
+                                        </label>
+                                        <textarea
+                                            name='comment'
+                                            id='review_comment'
+                                        ></textarea>
+                                    </div>
+                                    <div class='col-lg-6 col-md-6'>
+                                        <label for='author'>Name</label>
+                                        <input id='author' type='text' />
+
+                                    </div>
+                                    <div class='col-lg-6 col-md-6'>
+                                        <label for='email'>Email </label>
+                                        <input id='email' type='text' />
+                                    </div>
+                                </div>
+                                <button type='submit'>Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--product info end-->

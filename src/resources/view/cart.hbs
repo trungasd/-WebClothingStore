@@ -1,0 +1,181 @@
+<!--breadcrumbs area start-->
+<div class='breadcrumbs_area'>
+    <div class='row'>
+        <div class='col-12'>
+            <div class='breadcrumb_content'>
+                <ul>
+                    <li><a href='/'>home</a></li>
+                    <li><i class='fa fa-angle-right'></i></li>
+                    <li>Shopping Cart</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumbs area end-->
+<!--shopping cart area start -->
+<form name='delete-product-from' method='POST'></form>
+
+<div class='shopping_cart_area'>
+    <form action='#'>
+        <div class='row'>
+            <div class='col-12'>
+                <div class='table_desc'>
+                    <div class='cart_page table-responsive'>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class='product_remove'>Delete</th>
+                                    <th class='product_thumb'>Image</th>
+                                    <th class='product_name'>Product</th>
+                                    <th class='product-price'>Price</th>
+                                    <th class='product_quantity'>Quantity</th>
+                                    <th class='product_total'>Total</th>
+                                </tr>
+                            </thead>
+                            {{#each Cart}}
+                            <tbody>
+                                <tr>
+                                    <td class='product_remove'>
+                                        <a href='#'
+                                        class='fa fa-trash-o'
+                                        data-toggle='modal'
+                                        data-id='{{this._id}}'
+                                        data-target='#delete-product-modal'>
+                                        </a>
+                                    </td>
+                                    <td class='product_thumb'><a href='/products/{{slug}}'><img
+                                                src='{{imageURL}}'
+                                                alt=''
+                                                style='width: 50%;'
+                                            /></a></td>
+                                    <td class='product_name'><a href='/products/{{slug}}'>{{name}}</a></td>
+                                    <td class='product-price'>{{salePrice}}</td>
+                                    <td class='product_quantity'><input
+                                            min='0'
+                                            max='100'
+                                            value='1'
+                                            type='number'
+                                        /></td>
+                                    <td class='product_total'>${{totalPrice}}</td>
+                                </tr>
+                            </tbody>
+                            {{/each}}
+                        </table>
+                    </div>
+                    <div class='cart_submit'>
+                        <button type='submit'>update cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+        <div id='delete-product-modal' class='modal' tabindex='-1' role='dialog'>
+                            <div class='modal-dialog' role='document'>
+                                <div class='modal-content'>
+                                    <div class='modal-header'>
+                                        <h5 class='modal-title'>Delete product</h5>
+                                        <button
+                                            type='button'
+                                            class='close'
+                                            data-dismiss='modal'
+                                            aria-label='Close'
+                                        >
+                                            <span
+                                                aria-hidden='true'
+                                            >&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class='modal-body'>
+                                        <p>Do you really want to delete this
+                                            product ???</p>
+                                    </div>
+                                    <div class='modal-footer'>
+                                        <button
+                                            id='btn-delete-product'
+                                            type='button'
+                                            class='btn btn-danger'
+                                        >Delete product</button>
+                                        <button
+                                            type='button'
+                                            class='btn btn-secondary'
+                                            data-dismiss='modal'
+                                        >Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <script>
+                            var productID; var deleteFrom =
+                            document.forms['delete-product-from']; var
+                            btnDelelteProduct =
+                            document.getElementById('btn-delete-product')
+                            document.addEventListener('DOMContentLoaded',
+                            function(){
+                            $('#delete-product-modal').on('show.bs.modal',
+                            function (event) { var button =
+                            $(event.relatedTarget)
+                            productID = button.data('id'); })
+                            btnDelelteProduct.onclick = function () {
+                            deleteFrom.action = '/cart/' + productID +
+                            '?_method=DELETE'; deleteFrom.submit(); } });
+
+                        </script>
+    <form method='post' action='/cart/makeorder'>
+        <!--coupon code area start-->
+        <div class='coupon_area'>
+            <div class='row'>
+                <div class='col-lg-6 col-md-6'>
+                    <div class='coupon_code'>
+                        <h3>User informations</h3>
+                        <div class='coupon_inner'>
+                            Email: <input name='emailUser' value='{{cartUser.email}}' type='text' />
+                            Fullname: <input name='nameUser' value='{{cartUser.fullName}}' type='text' />
+                            Phone number: <input name='phoneUser' value='{{cartUser.phone}}' type='text' />
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-6 col-md-6'>
+                    <div class='coupon_code'>
+                        <h3>Cart Totals</h3>
+                        <div class='coupon_inner'>
+                            <div class='cart_subtotal'>
+                                <p>Subtotal</p>
+                                <p class='cart_amount'></p>
+                            </div>
+                            <div class='cart_subtotal'>
+                                <p>Shipping</p>
+                                <p class='shipping_amount'></p>
+                            </div>
+                            <div class='cart_subtotal'>
+                                <p>Total</p>
+                                <p class='total_amount'></p>
+                            </div>
+                            <!-- Các thông tin sản phẩm -->
+                            <input type="hidden" name="idUser" value="{{ cartUser._id }}">
+                            {{#each Cart}}
+                            <input type="hidden" name="products" value="{{ name }}">
+                            {{/each}}
+                            <!-- Tổng giá tiền -->
+                            <input type="hidden" name="total" value="{{ totalCartPrice }}">
+                            <!-- Số lượng sản phẩm -->
+                            <input type="hidden" name="quantity" value="{{ quantity }}">
+                            {{#if cartUser}}
+                            <div class='checkout_btn'>
+                                <button type='submit'>Proceed to Checkout</button>
+                            </div>
+                            {{else}}
+                                <a href='/login'>Login</a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--coupon code area end-->
+    </form>
+</div>
+<!--shopping cart area end -->

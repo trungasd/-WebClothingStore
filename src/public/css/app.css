@@ -1,0 +1,13 @@
+
+/* CSS */
+html, body, .wrapper {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  min-height: calc(100% - 56px); /* Trừ đi chiều cao của navbar */
+  /* Nếu bạn có các phần khác như footer, hãy trừ đi chiều cao của footer tương ứng */
+  /* Thêm các phần tử khác vào content-wrapper tùy theo nhu cầu của bạn */
+}

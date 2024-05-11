@@ -1,0 +1,104 @@
+<nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
+    <!-- Brand -->
+    <a class='navbar-brand' href='/'>GUCCI</a>
+
+    <!-- Toggler button for mobile -->
+    <button
+        class='navbar-toggler'
+        type='button'
+        data-toggle='collapse'
+        data-target='#navbarNavDropdown'
+        aria-controls='navbarNavDropdown'
+        aria-expanded='false'
+        aria-label='Toggle navigation'
+    >
+        <span class='navbar-toggler-icon'></span>
+    </button>
+
+    <!-- Navbar items -->
+    <div
+        class='collapse navbar-collapse justify-content-end'
+        id='navbarNavDropdown'
+    >
+        <ul class='navbar-nav'>
+            <!-- Home -->
+            <li class='nav-item active'>
+                <a class='nav-link' href='/'>Home
+                    <span class='sr-only'>(current)</span></a>
+            </li>
+
+            <!-- Features -->
+            <li class='nav-item'>
+                <a class='nav-link' href='/products'>Products</a>
+            </li>
+
+            <!-- Pricing -->
+            <li class='nav-item'>
+                <a class='nav-link' href='/news'>News</a>
+            </li>
+        </ul>
+
+        <!-- Language and Currency Selection -->
+        <ul class='navbar-nav ml-auto'>
+            <li class='nav-item'>
+                <div class='switcher'>
+                    <ul>
+                        <!-- Language -->
+                        <li class='languages'>
+                            <a href='#'>
+                                <img src='\img\logo\fontlogo.jpg' alt='' />
+                                English
+                                <i class='fa fa-angle-down'></i>
+                            </a>
+                            <ul class='dropdown_languages'>
+                                <li><a href='#'><img
+                                            src='\img\logo\fontlogo.jpg'
+                                            alt=''
+                                        />
+                                        English</a></li>
+                                <li><a href='#'><img
+                                            src='\img\logo\fontlogo2.jpg'
+                                            alt=''
+                                        />
+                                        French
+                                    </a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Currency -->
+                        <li class='currency'>
+                            <a href='#'>
+                                Currency : $
+                                <i class='fa fa-angle-down'></i></a>
+                            <ul class='dropdown_currency'>
+                                <li><a href='#'> Dollar (USD)</a></li>
+                                <li><a href='#'> Euro (EUR) </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <div class='col-lg-6 col-md-6'>
+            <div class='header_links'>
+                <ul>
+                    <li><a href='/contact' title='Contact'>Contact</a></li>
+                    <li><a href='/account' title='My account'>My account</a></li>
+                    <li><a href='/cart' title='My cart'>My cart</a></li>
+                    <!-- Admin section -->
+                    {{#if user.admin}}
+                    <li class='nav-item'>
+                        <a class='nav-link' href='/admin'>Admin</a>
+                    </li>
+                    {{/if}}
+                    {{#if user}}
+                    <li><span style="color: white;">Hello, {{user.fullName}}</span></li>
+                    <li><a href='/logout' title='Log out'>Sign Out</a></li>
+                    {{else}}
+                    <li><a href='/login' title='Login'>Login</a></li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

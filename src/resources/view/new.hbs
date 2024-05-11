@@ -1,0 +1,58 @@
+<!--breadcrumbs area start-->
+<div class='breadcrumbs_area'>
+    <div class='row'>
+        <div class='col-12'>
+            <div class='breadcrumb_content'>
+                <ul>
+                    <li><a href='index.html'>home</a></li>
+                    <li><i class='fa fa-angle-right'></i></li>
+                    <li>news</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumbs area end-->
+
+<!--new area start-->
+<div class='blog_area'>
+    <div class='row'>
+        {{#each New}}
+            <div class='col-lg-4 col-md-6'>
+                <div class='single_blog'>
+                    <div class='blog_thumb'>
+                        <a href='/news/{{slug}}'><img
+                                src='{{imagenew}}'
+                                alt=''
+                            /></a>
+                    </div>
+                    <div class='blog_content'>
+                        <div class='blog_post'>
+                            <ul>
+                                <li>
+                                    <a href='#'>Tech</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <h3><a href='/news/{{slug}}'>{{titlenew}}</a></h3>
+                        <p>{{newdetail}}</p>
+                        <div class='post_footer'>
+                            <div class='post_meta'>
+                                <ul>
+                                    <li>{{time}}</li>
+                                    <li>3 Comments</li>
+                                </ul>
+                            </div>
+                            <div class='Read_more'>
+                                <a href='/news/{{slug}}'>Read more
+                                    <i class='fa fa-angle-double-right'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+<!--blog area end-->
